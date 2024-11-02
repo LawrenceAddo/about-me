@@ -1,3 +1,4 @@
+//Git Changelog GitHub Release
 - name: Git Changelog GitHub Release
 uses: tomasbjerre/git-changelog-github-release@1.5.0
             
