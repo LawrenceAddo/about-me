@@ -21,7 +21,7 @@
 
   function _objectSpread2(target) {
     for (var i = 1; i < arguments.length; i++) {
-      var source = null != arguments[i] ? arguments[i] : {};
+      var source = arguments[i] != null ? arguments[i] : {};
       i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
         _defineProperty(target, key, source[key]);
       }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
@@ -35,10 +35,10 @@
   function _typeof(obj) {
     "@babel/helpers - typeof";
 
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return _typeof = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function (obj) {
       return typeof obj;
     } : function (obj) {
-      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      return obj && typeof Symbol == "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     }, _typeof(obj);
   }
 
@@ -69,7 +69,7 @@
 
       return result && (result.groups = buildGroups(result, this)), result;
     }, BabelRegExp.prototype[Symbol.replace] = function (str, substitution) {
-      if ("string" == typeof substitution) {
+      if (typeof substitution == "string") {
         var groups = _groups.get(this);
 
         return _super[Symbol.replace].call(this, str, substitution.replace(/\$<([^>]+)>/g, function (_, name) {
@@ -77,12 +77,12 @@
         }));
       }
 
-      if ("function" == typeof substitution) {
+      if (typeof substitution == "function") {
         var _this = this;
 
         return _super[Symbol.replace].call(this, str, function () {
           var args = arguments;
-          return "object" != typeof args[args.length - 1] && (args = [].slice.call(args)).push(buildGroups(args, _this)), substitution.apply(this, args);
+          return typeof args[args.length - 1] != "object" && (args = [].slice.call(args)).push(buildGroups(args, _this)), substitution.apply(this, args);
         });
       }
 
