@@ -2,3 +2,6 @@
 - name: Git Changelog GitHub Release
 uses: tomasbjerre/git-changelog-github-release@1.5.0
             
+- name: Xdebug Action
+uses: MilesChou/docker-xdebug@v2
+            
